@@ -32,7 +32,7 @@ jobs:
           name: "Building documenation using pdoc3"
           command: "pdoc --html --skip-errors --output-dir docs ."
       - persist_to_workspace:
-          root: docs/$CIRCLE_PROJECT_REPONAME
+          root: docs/project
 
 workflows:
   version: 2
