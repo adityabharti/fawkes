@@ -16,8 +16,27 @@ jobs:
       - run:
           name: "Sending coverage reports to CodeCov"
           command: "bash <(curl -s https://codecov.io/bash)"
+
+  build-docs:
+      docker:
+      - image: circleci/python:3.7.3
+      steps:
+      - checkout
+      - run:
+          name: "Installing Dependencies"
+          command: "sudo pip3 install -r requirements.txt"
+      - run:
+          name: "Setting environment variable"
+          command: "export PYTHONWARNINGS='error::UserWarning'"
+      - run:
+          name: "Building documenation using pdoc3"
+          command: "pdoc --html --skip-errors --output-dir docs ."
+      - persist_to_workspace:
+          root: build/fawkes
+
 workflows:
   version: 2
   test:
     jobs:
       - test
+      - build-docs
