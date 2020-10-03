@@ -31,8 +31,11 @@ jobs:
       - run:
           name: "Building documenation using pdoc3"
           command: "pdoc --html --skip-errors --output-dir docs ."
+      - run:
+          name: "cd into docs"
+          command: "cd docs && pwd"
       - persist_to_workspace:
-          root: docs/project
+          root: ~/docs/project
 
 workflows:
   version: 2
