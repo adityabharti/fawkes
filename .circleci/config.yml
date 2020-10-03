@@ -47,7 +47,7 @@ jobs:
       steps:
       - checkout
       - attach_workspace:
-            at: ~/project/docs/project
+            at: ~/docs/project
       - run:
             name: "which dir"
             command: "ls && pwd"
@@ -57,7 +57,7 @@ jobs:
                 npm install -g --silent gh-pages@2.0.1
       - run:
             name: Deploy docs to gh-pages branch
-            command: gh-pages --dist project/docs/project
+            command: gh-pages --dist docs/project
 
 workflows:
   version: 2
