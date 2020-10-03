@@ -47,7 +47,7 @@ jobs:
       steps:
       - checkout
       - attach_workspace:
-            at: ~/docs/project
+            at: ~/project/docs/project
       - run:
             name: "which dir"
             command: "ls && pwd"
