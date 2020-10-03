@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>project.fawkes.constants API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>project.fawkes.constants</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># Fields in unified json
+TIMESTAMP = &#34;timestamp&#34;
+MESSAGE = &#34;message&#34;
+CHANNEL_TYPE = &#34;channel_type&#34;
+PROPERTIES = &#34;properties&#34;
+APP = &#34;app&#34;
+DERIVED_INSIGHTS = &#34;derived_insight&#34;
+EXTRA_PROPERTIES = &#34;extra_properties&#34;
+CATEGORY_SCORES = &#34;category_scores&#34;
+CATEGORY = &#34;category&#34;
+SENTIMENT = &#34;sentiment&#34;
+COMPOUND = &#34;compound&#34;
+TIMEZONE = &#34;timezone&#34;
+RAW_REVIEW = &#34;raw_review&#34;
+
+# String constants
+TWITTER_QUERY_LANGUAGE = &#34;en&#34;
+KEY_CONTAINING_TWEETS = &#34;statuses&#34;
+TIMESTAMP_KEY = &#34;timestamp-key&#34;
+MESSAGE_KEY = &#34;message-key&#34;
+TWITTER_HANDLE_BALCKLIST = &#34;twitter-handle-blacklist&#34;
+KEY_WITH_STATUS_ID = &#34;id&#34;
+KEY_WITH_TWEET_URL = &#34;tweet-url&#34;
+REVIEW_CHANNELS = &#34;review-channels&#34;
+SALESFORCE_ACCESS_TOKEN_KEY = &#34;access_token&#34;
+SALESFORCE_QUERY_LIST = &#34;salesforce-query-list&#34;
+SALESFORCE_BASE_URL = &#34;salesforce-base-url&#34;
+SALESFORCE_PAGINATION_URL = &#34;nextRecordsUrl&#34;
+SALESFORCE_OAUTH_PARAMS = &#34;salesforce-oauth-params&#34;
+TWITTER_HANDLE_LIST = &#34;twitter-handle-list&#34;
+AMPERSAND = &#34;&amp;&#34;
+BLANK = &#34;blank&#34;
+AT_ENCODED = &#34;%40&#34;
+SPREADSHEET_ID = &#34;spreadsheet-id&#34;
+SHEET_ID = &#34;sheet-id&#34;
+CLIENT_SECRET_FILE = &#34;path-to-client-secrets&#34;
+CHANNEL_NAME = &#34;channel-name&#34;
+CONSUMER_KEY = &#34;consumer-key&#34;
+CONSUMER_SECRET = &#34;consumer-secret&#34;
+ACCESS_TOKEN_KEY = &#34;access-token-key&#34;
+ACCESS_TOKEN_SECRET = &#34;access-token-secret&#34;
+IS_CHANNEL_ENABLED = &#34;is-channel-enabled&#34;
+RECORDS = &#34;records&#34;
+DONE = &#34;done&#34;
+FILE_TYPE = &#34;file-type&#34;
+CUSTOM_CODE_PATH = &#34;custom-code-path&#34;
+HASH_ID = &#34;hash-id&#34;
+FILE_PATH = &#34;file-path&#34;
+BUG_FEATURE = &#34;bug_feature&#34;
+LSTM_CATEGORY = &#34;lstm_category&#34;
+BUG = &#34;bug&#34;
+FEATURE = &#34;feature&#34;
+APP_ID = &#34;app-id&#34;
+SEARCHMAN_API_KEY = &#34;searchman-api-key&#34;
+COUNTRY = &#34;country&#34;
+ALGORITHM_DAYS_FILTER = &#34;algorithm-days-filter&#34;
+CATEGORIZATION_ALGORITHM = &#34;categorization-algorithm&#34;
+EMAIL_SUBJECT_NAME = &#34;email-subject-name&#34;
+EMAIL_LIST = &#34;email-list&#34;
+WEEKLY_SUMMARY = &#34;weekly-summary&#34;
+APP_LOGO = &#34;app-logo&#34;
+EMAIL_TIME_SPAN_WORDS = &#34;email-time-span&#34;
+TOPIC_KEYWORDS_FILE = &#34;topic-keywords-file&#34;
+BUG_FEATURE_FILE = &#34;bug-feature-file&#34;
+LIFETIME_RATING_ELASTICSEARCH_INDEX = &#34;lifetime-rating-elastic-search-index&#34;
+CHANNEL_TYPE_SPREADSHEET = &#34;spreadsheet&#34;
+CHANNEL_TYPE_TWITTER = &#34;twitter&#34;
+CHANNEL_TYPE_APPSTORE = &#34;ios&#34;
+CHANNEL_TYPE_PLAYSTORE = &#34;android&#34;
+CHANNEL_TYPE_SALESFORCE = &#34;salesforce&#34;
+CHANNEL_TYPE_CSV = &#34;csv&#34;
+
+CHANNEL_NAME_TWITTER = &#34;twitter&#34;
+CHANNEL_NAME_PLAYSTORE = &#34;playstore&#34;
+CHANNEL_NAME_APPSTORE = &#34;appstore&#34;
+
+JSON = &#34;json&#34;
+CSV = &#34;csv&#34;
+
+TIMESTAMP_FORMAT = &#34;%Y/%m/%d %H:%M:%S&#34;
+
+# Salesforce related stuff
+SALESFORCE_EXTRACTION_DAYS = 10
+
+# PARSING MODULE
+# All about care transcripts
+CONVERSATION_START_STRING = &#34;Website visitor has joined the conversation&#34;
+CONVERSATION_END_STRING = &#34;Website visitor has left the conversation&#34;
+PERSON_TIME_STAMP_REGEX = r&#34;[\t|\s]*([\d+:]*\d+[\s]*(?:AM|PM))&#34;
+
+# in-app
+PLATFORM_ANDROID = &#34;Android Phone&#34;
+RATING = &#34;rating&#34;
+FEEDBACK = &#34;feedback&#34;
+NA_STRING = &#34;NA&#34;
+EMPTY = &#34;&#34;
+
+# Twitter parse relateds
+TWITTER_URL = &#34;https://twitter.com/i/web/status/{status_id}&#34;
+POSSIBLY_SENSITIVE = &#34;possibly_sensitive&#34;
+
+# App Store
+APP_STORE_RSS_URL = &#34;https://itunes.apple.com/{country}/rss/customerreviews/id={app_id}/page={page_number}/sortBy=mostRecent/xml&#34;
+APP_STORE_APP_URL = &#34;https://apps.apple.com/us/app/id{app_id}&#34;
+APPSTORE_CLASS_TYPE = &#34;span&#34;
+APPSTORE_CLASS_NAME = &#34;we-customer-ratings__averages__display&#34;
+APP_STORE_PAGES_TO_FETCH = 10
+
+# Play Store
+PLAY_STORE_APP_URL = &#34;https://play.google.com/store/apps/details?id={app_id}&#34;
+PLAYSTORE_CLASS_TYPE = &#34;div&#34;
+PLAYSTORE_CLASS_NAME = &#34;BHMmbe&#34;
+PLAYSTORE_FETCH_PAGES = 1
+
+# Categorization algorithms
+LSTM_CLASSIFICATION = &#34;lstm-classifier&#34;
+TEXT_MATCH_CLASSIFIER = &#34;text-match-classifier&#34;
+
+# File paths
+DATA_DUMP_DIR = &#34;data/&#34;
+APP_CONFIG_FILE = &#34;app/{file_name}&#34;
+APP_CONFIG_FILE_NAME = &#34;app-config.json&#34;
+PROCESSED_DATA_DIR = &#34;processed-data/&#34;
+PARSED_INTEGRATED_REVIEW_FILE = &#34;processed-data/{app_name}-parsed-integrated-review.json&#34;
+PROCESSED_INTEGRATED_REVIEW_FILE = &#34;processed-data/{app_name}-processed-integrated-review.json&#34;
+PROCESSED_EMAIL_FILE = &#34;processed-data/{app_name}-processed-email.html&#34;
+TOPICS_WEIGHT_FILE = &#34;app/{app}-keywords-with-weight.json&#34;
+
+RAW_USER_REVIEWS_FILE_PATH = &#34;{base_folder}/{dir_name}/{app_name}/{channel_name}-raw-feedback.{extension}&#34;
+PARSED_USER_REVIEWS_FILE_PATH = &#34;{base_folder}/{dir_name}/{app_name}/parsed-user-feedback.json&#34;
+PROCESSED_USER_REVIEWS_FILE_PATH = &#34;{base_folder}/{dir_name}/{app_name}/processed-user-feedback.json&#34;
+LSTM_CATEGORY_MODEL_FILE_PATH = &#34;{base_folder}/{dir_name}/{app_name}/lstm-category-trained-model.h5&#34;
+LSTM_CATEGORY_ARTICLE_TOKENIZER_FILE_PATH = &#34;{base_folder}/{dir_name}/{app_name}/lstm-category-article-tokenizer.json&#34;
+LSTM_CATEGORY_LABEL_TOKENIZER_FILE_PATH = &#34;{base_folder}/{dir_name}/{app_name}/lstm-category-label-tokenizer.json&#34;
+EMAIL_SUMMARY_GENERATED_FILE_PATH = &#34;{base_folder}/{dir_name}/{app_name}/email-summary-generated.html&#34;
+
+BUG_FEATURE_FILE_WITH_WEIGHTS = &#34;app/{app}-bug-feature-file-with-weights.json&#34;
+TRAINED_MODELS = &#34;trained-models/&#34;
+LSTM_TRAINED_MODEL_FILE = TRAINED_MODELS + &#34;lstm-{app_name}-trained.h5&#34;
+LSTM_ARTICLE_TOKENIZER_FILE = TRAINED_MODELS + \
+    &#34;lstm-article-tokenizer-{app_name}.json&#34;
+LSTM_LABEL_TOKENIZER_FILE = TRAINED_MODELS + \
+    &#34;lstm-label-tokenizer-{app_name}.json&#34;
+
+# generic cleanup
+URL_REGEX = r&#34;(http|ftp|https)://([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=% &amp;:/~+#-]*[\w@?^=%&amp;/~+#-])?&#34;
+LINK_REGEX = &#34;&lt;[^&gt;]+&gt;&#34;
+
+LDA_MODEL_SAVE_FILE = &#34;trained-models/all/all-channels-lda-model.lda&#34;
+LDA_TOPIC_FILE = &#34;processed-data/intergrated-review-lda-topics-07.json&#34;
+LDA_MODEL_CORPUS_SAVE_FILE = &#34;processed-data/corpus-lda&#34;
+LDA_MODEL_ID2WORD_SAVE_FILE = &#34;trained-models/all/all-channels-lda-model.lda.state&#34;
+
+GLOVE_WORD_EMBEDDING_READ_FILE = &#34;configs/glove-twitter-word-embedding.txt&#34;
+
+# Summary
+SUMMARY_NUM_LINES = 5
+POSTIVE_SENTIMENT = &#34;positive&#34;
+NEGATIVE_SENTIMENT = &#34;negative&#34;
+TWEET_LIMIT = 5
+
+# Elasticsearch related
+ELASTIC_SEARCH_URL = &#34;elastic-search-url&#34;
+KIBANA_DASHBOARD_URL = &#34;kibana-dashboard-url&#34;
+ELASTIC_SEARCH_INDEX_KEY = &#34;elastic-search-index&#34;
+BULK_UPLOAD_SIZE = 10000
+NEW_LINE = &#34;\n&#34;
+SPACE = &#34; &#34;
+
+# Slackbot related
+SLACK_CHANNEL_NAME = &#34;slack-channel&#34;
+SLACK_HOOK_URL = &#34;slack-hook-url&#34;
+SLACKBOT_MINUTES_FILTER = &#34;slackbot-run-interval&#34;
+SLACK_TAGS = &#34;slack-tags&#34;
+SLACK_KEYWORDS = &#34;keywords&#34;
+JIRA_ISSUE_URL_TEMPLATE = &#34;{base_url}/secure/CreateIssueDetails!init.jspa?{params}&#34;
+JIRA = &#34;jira&#34;
+PROJECT_ID = &#34;project-id&#34;
+STORY_ISSUE_TYPE = &#34;story-issue-type&#34;
+BUG_ISSSUE_TYPE = &#34;bug-issue-type&#34;
+JIRA_BASE_URL = &#34;base-url&#34;
+
+# Searchman
+SEARCHMAN_REVIEWS_ENDPOINT = &#34;http://api.searchman.io/v1/{platform}/us/app/reviews&#34;
+
+# text-match related
+CATEGORY_NOT_FOUND = &#34;uncategorized&#34;
+
+# Categorized docs
+CARE_TRANSCRIPTS_CATEGORIZED_SIMPLE_TEXT = &#34;data-parsed/care/care-transcripts-categorized-simple-text.json&#34;
+
+# Multiprocessing related
+PROCESS_NUMBER = 6
+
+# Improvement of keywords
+IMPROVEMENT_KEYWORDS_NUMBER = 20
+IMPROVED_CATEGORY_KEYWORDS = &#34;app/improved-{app_name}-category-keywords.json&#34;
+CIRCLECI = &#34;CIRCLECI&#34;
+
+# Email notification service
+SENDER_EMAIL_ADDRESS = &#34;sender-email-address&#34;
+WEEKLY_EMAIL_TEMPLATE = &#34;fawkes/email_summary/templates/weekly.html&#34;
+WEEKLY_EMAIL_DETAILED_TEMPLATE = &#34;fawkes/email_summary/templates/weekly-detailed.html&#34;
+WEEKLY_EMAIL_DETAILED_REVIEW_BLOCK_TEMPLATE = &#34;fawkes/email_summary/templates/weekly-detailed-review-block.html&#34;
+SENDGRID_API_KEY = &#34;sendgrid-api-key&#34;
+
+# environment variables list
+ENV_KEYS = &#34;env-keys&#34;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="project.fawkes" href="index.html">project.fawkes</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

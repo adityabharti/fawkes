@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.1" />
-<title>project API documentation</title>
+<title>project.fawkes.email_summary.send_email API documentation</title>
 <meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,26 +19,107 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Package <code>project</code></h1>
+<h1 class="title">Module <code>project.fawkes.email_summary.send_email</code></h1>
 </header>
 <section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># using SendGrid&#39;s Python Library
+# https://github.com/sendgrid/sendgrid-python
+import os
+import sys
+import pathlib
+
+from datetime import datetime, timedelta
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+from datetime import datetime
+
+# this is so that below import works.  Sets the pwd to home directory
+sys.path.append(os.path.realpath(&#34;.&#34;))
+
+import fawkes.utils.utils as utils
+import fawkes.constants as constants
+from fawkes.app_config.app_config import AppConfig
+
+def send_email_helper(from_email_address, to_email, subject, html,
+                      sendgrid_api_key):
+    message = Mail(from_email=from_email_address,
+                   to_emails=to_email,
+                   subject=subject,
+                   html_content=html)
+    try:
+        sg = SendGridAPIClient(sendgrid_api_key)
+        response = sg.send(message)
+        print(&#34;[LOG] Email to &#34;, to_email, response.status_code)
+    except Exception as e:
+        print(e.message)
+
+
+if __name__ == &#34;__main__&#34;:
+    app_configs = utils.open_json(
+        constants.APP_CONFIG_FILE.format(file_name=constants.APP_CONFIG_FILE_NAME)
+    )
+    for app_config_file in app_configs:
+        app_config = AppConfig(
+            utils.open_json(
+                app_config_file
+            )
+        )
+        # Path where the generated email in html format will be stored
+        email_summary_generated_file_path = constants.EMAIL_SUMMARY_GENERATED_FILE_PATH.format(
+            base_folder=app_config.fawkes_internal_config.data.base_folder,
+            dir_name=app_config.fawkes_internal_config.data.emails_folder,
+            app_name=app_config.app.name,
+        )
+
+        dir_name = os.path.dirname(email_summary_generated_file_path)
+        pathlib.Path(dir_name).mkdir(parents=True, exist_ok=True)
+
+        template_html = &#34;&#34;
+
+        with open(email_summary_generated_file_path, &#34;r&#34;) as email_file_handle:
+            template_html = email_file_handle.read()
+
+        for email_id in app_config.email_config.email_list:
+            send_email_helper(app_config.email_config.sender_email_address, email_id,
+                                app_config.email_config.email_subject_name, template_html,
+                                app_config.email_config.sendgrid_api_key)</code></pre>
+</details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt><code class="name"><a title="project.fawkes" href="fawkes/index.html">project.fawkes</a></code></dt>
+<dt id="project.fawkes.email_summary.send_email.send_email_helper"><code class="name flex">
+<span>def <span class="ident">send_email_helper</span></span>(<span>from_email_address, to_email, subject, html, sendgrid_api_key)</span>
+</code></dt>
 <dd>
 <div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="project.tests" href="tests/index.html">project.tests</a></code></dt>
-<dd>
-<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def send_email_helper(from_email_address, to_email, subject, html,
+                      sendgrid_api_key):
+    message = Mail(from_email=from_email_address,
+                   to_emails=to_email,
+                   subject=subject,
+                   html_content=html)
+    try:
+        sg = SendGridAPIClient(sendgrid_api_key)
+        response = sg.send(message)
+        print(&#34;[LOG] Email to &#34;, to_email, response.status_code)
+    except Exception as e:
+        print(e.message)</code></pre>
+</details>
 </dd>
 </dl>
-</section>
-<section>
-</section>
-<section>
 </section>
 <section>
 </section>
@@ -49,10 +130,14 @@
 <ul></ul>
 </div>
 <ul id="index">
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<li><h3>Super-module</h3>
 <ul>
-<li><code><a title="project.fawkes" href="fawkes/index.html">project.fawkes</a></code></li>
-<li><code><a title="project.tests" href="tests/index.html">project.tests</a></code></li>
+<li><code><a title="project.fawkes.email_summary" href="index.html">project.fawkes.email_summary</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="project.fawkes.email_summary.send_email.send_email_helper" href="#project.fawkes.email_summary.send_email.send_email_helper">send_email_helper</a></code></li>
 </ul>
 </li>
 </ul>

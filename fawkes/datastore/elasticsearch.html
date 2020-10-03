@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>project.fawkes.datastore.elasticsearch API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>project.fawkes.datastore.elasticsearch</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import requests
+import sys
+import os
+import json
+import random
+
+from pprint import pprint
+from datetime import datetime, timedelta, timezone
+
+sys.path.append(os.path.realpath(&#34;.&#34;))
+
+import fawkes.utils.utils as utils
+import fawkes.utils.filter_utils as filter_utils
+import fawkes.constants as constants
+
+from fawkes.app_config.app_config import AppConfig
+from fawkes.review.review import Review
+
+def create_index(elastic_search_url, index):
+    response = requests.put(elastic_search_url + &#34;/&#34; + index)
+    return response
+
+
+def get_indices(elastic_search_url):
+    headers = {&#34;content-type&#34;: &#34;application/json&#34;}
+    response = requests.get(elastic_search_url + &#34;/_cat/indices?v&#34;,
+                            headers=headers)
+
+    # Don&#34;t know who made this as a text based API
+    indices = response.text.split(&#34;\n&#34;)
+
+    # We split the row for each index by space, but there are multiple spaces
+    # so we join them and split again.
+    indices = [&#34; &#34;.join(index.split()).split() for index in indices]
+
+    # We return the list of indices
+    return [index[2] for index in indices if len(index) &gt; 2]
+
+
+def create_document(elastic_search_url, index, type, id, document):
+    headers = {&#34;content-type&#34;: &#34;application/json&#34;}
+    url = elastic_search_url + &#34;/&#34; + index + &#34;/&#34; + type + &#34;/&#34; + str(id)
+    response = requests.put(url, data=json.dumps(document), headers=headers)
+    return response
+
+
+def get_document(elastic_search_url, index, type, id):
+    url = elastic_search_url + &#34;/&#34; + index + &#34;/&#34; + type + &#34;/&#34; + id
+    response = requests.get(url)
+    return response
+
+
+def delete_index(elastic_search_url, index):
+    response = requests.delete(elastic_search_url + &#34;/&#34; + index)
+    return response
+
+
+def delete_document(elastic_search_url, index, type, id):
+    headers = {&#34;content-type&#34;: &#34;application/json&#34;}
+    url = elastic_search_url + &#34;/&#34; + index + &#34;/&#34; + type + &#34;/&#34; + id
+    response = requests.delete(url)
+    return response
+
+
+def bulk_push_to_elastic(elastic_search_url, index, reviews):
+    &#34;&#34;&#34;
+    Format of bulk post to ElasticSearch
+    POST _bulk
+    { &#34;index&#34; : { &#34;_index&#34; : &#34;test&#34;, &#34;_type&#34; : &#34;_doc&#34;, &#34;_id&#34; : &#34;1&#34; } }
+    { &#34;field1&#34; : &#34;value1&#34; }
+    &#34;&#34;&#34;
+    create_template = {&#34;create&#34;: {&#34;_index&#34;: index, &#34;_type&#34;: &#34;_doc&#34;, &#34;_id&#34;: &#34;&#34;}}
+
+    bulk_request_body = &#34;&#34;
+    for review in reviews:
+        create_template[&#34;create&#34;][&#34;_id&#34;] = review.hash_id
+        bulk_request_body += json.dumps(create_template) + constants.NEW_LINE
+        bulk_request_body += json.dumps(review.to_dict()) + constants.NEW_LINE
+
+    # Request
+    headers = {&#34;content-type&#34;: &#34;application/x-ndjson&#34;}
+
+    url = elastic_search_url + &#34;/&#34; + &#34;_bulk&#34;
+
+    response = requests.post(url, data=bulk_request_body, headers=headers)
+    return response
+
+
+def push_data_to_elasticsearch():
+    app_configs = utils.open_json(
+        constants.APP_CONFIG_FILE.format(file_name=constants.APP_CONFIG_FILE_NAME)
+    )
+    for app_config_file in app_configs:
+        app_config = AppConfig(
+            utils.open_json(
+                app_config_file
+            )
+        )
+        # Path where the user reviews were stored after parsing.
+        processed_user_reviews_file_path = constants.PROCESSED_USER_REVIEWS_FILE_PATH.format(
+            base_folder=app_config.fawkes_internal_config.data.base_folder,
+            dir_name=app_config.fawkes_internal_config.data.processed_data_folder,
+            app_name=app_config.app.name,
+        )
+
+        # Loading the reviews
+        reviews = utils.open_json(processed_user_reviews_file_path)
+
+        # Converting the json object to Review object
+        reviews = [Review.from_review_json(review) for review in reviews]
+
+        # Filtering out reviews which are not applicable.
+        reviews = filter_utils.filter_reviews_by_time(
+            filter_utils.filter_reviews_by_channel(
+                reviews, filter_utils.filter_disabled_review_channels(
+                    app_config
+                ),
+            ),
+            datetime.now(timezone.utc) - timedelta(days=app_config.email_config.email_time_span)
+        )
+
+        # We shuffle the reviews. This is because of how elastic search.
+        random.shuffle(reviews)
+
+        # We first list out all the indices
+        indices = get_indices(app_config.elastic_config.elastic_search_url)
+        if app_config.elastic_config.index not in indices:
+            # Create a new index
+            create_index(app_config.elastic_config.elastic_search_url,
+                         app_config.elastic_config.index)
+
+        # Bulk push the data
+        i = 0
+        while i * constants.BULK_UPLOAD_SIZE &lt; len(reviews):
+            response = bulk_push_to_elastic(
+                app_config.elastic_config.elastic_search_url,
+                app_config.elastic_config.index,
+                reviews[i *
+                        constants.BULK_UPLOAD_SIZE:min((i + 1) *
+                                             constants.BULK_UPLOAD_SIZE, len(reviews))])
+            if response.status_code != 200:
+                print(
+                    &#34;[Error] push_data_to_elasticsearch :: Got status code : &#34;,
+                    response.status_code)
+                print(&#34;[Error] push_data_to_elasticsearch :: Response is : &#34;,
+                      response.text)
+            i += 1
+
+
+if __name__ == &#34;__main__&#34;:
+    push_data_to_elasticsearch()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="project.fawkes.datastore.elasticsearch.bulk_push_to_elastic"><code class="name flex">
+<span>def <span class="ident">bulk_push_to_elastic</span></span>(<span>elastic_search_url, index, reviews)</span>
+</code></dt>
+<dd>
+<div class="desc"><p : _field1_="&quot;field1&quot;" _value1_="&quot;value1&quot;">Format of bulk post to ElasticSearch
+POST _bulk
+{ "index" : { "_index" : "test", "_type" : "_doc", "_id" : "1" } }</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def bulk_push_to_elastic(elastic_search_url, index, reviews):
+    &#34;&#34;&#34;
+    Format of bulk post to ElasticSearch
+    POST _bulk
+    { &#34;index&#34; : { &#34;_index&#34; : &#34;test&#34;, &#34;_type&#34; : &#34;_doc&#34;, &#34;_id&#34; : &#34;1&#34; } }
+    { &#34;field1&#34; : &#34;value1&#34; }
+    &#34;&#34;&#34;
+    create_template = {&#34;create&#34;: {&#34;_index&#34;: index, &#34;_type&#34;: &#34;_doc&#34;, &#34;_id&#34;: &#34;&#34;}}
+
+    bulk_request_body = &#34;&#34;
+    for review in reviews:
+        create_template[&#34;create&#34;][&#34;_id&#34;] = review.hash_id
+        bulk_request_body += json.dumps(create_template) + constants.NEW_LINE
+        bulk_request_body += json.dumps(review.to_dict()) + constants.NEW_LINE
+
+    # Request
+    headers = {&#34;content-type&#34;: &#34;application/x-ndjson&#34;}
+
+    url = elastic_search_url + &#34;/&#34; + &#34;_bulk&#34;
+
+    response = requests.post(url, data=bulk_request_body, headers=headers)
+    return response</code></pre>
+</details>
+</dd>
+<dt id="project.fawkes.datastore.elasticsearch.create_document"><code class="name flex">
+<span>def <span class="ident">create_document</span></span>(<span>elastic_search_url, index, type, id, document)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_document(elastic_search_url, index, type, id, document):
+    headers = {&#34;content-type&#34;: &#34;application/json&#34;}
+    url = elastic_search_url + &#34;/&#34; + index + &#34;/&#34; + type + &#34;/&#34; + str(id)
+    response = requests.put(url, data=json.dumps(document), headers=headers)
+    return response</code></pre>
+</details>
+</dd>
+<dt id="project.fawkes.datastore.elasticsearch.create_index"><code class="name flex">
+<span>def <span class="ident">create_index</span></span>(<span>elastic_search_url, index)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_index(elastic_search_url, index):
+    response = requests.put(elastic_search_url + &#34;/&#34; + index)
+    return response</code></pre>
+</details>
+</dd>
+<dt id="project.fawkes.datastore.elasticsearch.delete_document"><code class="name flex">
+<span>def <span class="ident">delete_document</span></span>(<span>elastic_search_url, index, type, id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete_document(elastic_search_url, index, type, id):
+    headers = {&#34;content-type&#34;: &#34;application/json&#34;}
+    url = elastic_search_url + &#34;/&#34; + index + &#34;/&#34; + type + &#34;/&#34; + id
+    response = requests.delete(url)
+    return response</code></pre>
+</details>
+</dd>
+<dt id="project.fawkes.datastore.elasticsearch.delete_index"><code class="name flex">
+<span>def <span class="ident">delete_index</span></span>(<span>elastic_search_url, index)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete_index(elastic_search_url, index):
+    response = requests.delete(elastic_search_url + &#34;/&#34; + index)
+    return response</code></pre>
+</details>
+</dd>
+<dt id="project.fawkes.datastore.elasticsearch.get_document"><code class="name flex">
+<span>def <span class="ident">get_document</span></span>(<span>elastic_search_url, index, type, id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_document(elastic_search_url, index, type, id):
+    url = elastic_search_url + &#34;/&#34; + index + &#34;/&#34; + type + &#34;/&#34; + id
+    response = requests.get(url)
+    return response</code></pre>
+</details>
+</dd>
+<dt id="project.fawkes.datastore.elasticsearch.get_indices"><code class="name flex">
+<span>def <span class="ident">get_indices</span></span>(<span>elastic_search_url)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_indices(elastic_search_url):
+    headers = {&#34;content-type&#34;: &#34;application/json&#34;}
+    response = requests.get(elastic_search_url + &#34;/_cat/indices?v&#34;,
+                            headers=headers)
+
+    # Don&#34;t know who made this as a text based API
+    indices = response.text.split(&#34;\n&#34;)
+
+    # We split the row for each index by space, but there are multiple spaces
+    # so we join them and split again.
+    indices = [&#34; &#34;.join(index.split()).split() for index in indices]
+
+    # We return the list of indices
+    return [index[2] for index in indices if len(index) &gt; 2]</code></pre>
+</details>
+</dd>
+<dt id="project.fawkes.datastore.elasticsearch.push_data_to_elasticsearch"><code class="name flex">
+<span>def <span class="ident">push_data_to_elasticsearch</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def push_data_to_elasticsearch():
+    app_configs = utils.open_json(
+        constants.APP_CONFIG_FILE.format(file_name=constants.APP_CONFIG_FILE_NAME)
+    )
+    for app_config_file in app_configs:
+        app_config = AppConfig(
+            utils.open_json(
+                app_config_file
+            )
+        )
+        # Path where the user reviews were stored after parsing.
+        processed_user_reviews_file_path = constants.PROCESSED_USER_REVIEWS_FILE_PATH.format(
+            base_folder=app_config.fawkes_internal_config.data.base_folder,
+            dir_name=app_config.fawkes_internal_config.data.processed_data_folder,
+            app_name=app_config.app.name,
+        )
+
+        # Loading the reviews
+        reviews = utils.open_json(processed_user_reviews_file_path)
+
+        # Converting the json object to Review object
+        reviews = [Review.from_review_json(review) for review in reviews]
+
+        # Filtering out reviews which are not applicable.
+        reviews = filter_utils.filter_reviews_by_time(
+            filter_utils.filter_reviews_by_channel(
+                reviews, filter_utils.filter_disabled_review_channels(
+                    app_config
+                ),
+            ),
+            datetime.now(timezone.utc) - timedelta(days=app_config.email_config.email_time_span)
+        )
+
+        # We shuffle the reviews. This is because of how elastic search.
+        random.shuffle(reviews)
+
+        # We first list out all the indices
+        indices = get_indices(app_config.elastic_config.elastic_search_url)
+        if app_config.elastic_config.index not in indices:
+            # Create a new index
+            create_index(app_config.elastic_config.elastic_search_url,
+                         app_config.elastic_config.index)
+
+        # Bulk push the data
+        i = 0
+        while i * constants.BULK_UPLOAD_SIZE &lt; len(reviews):
+            response = bulk_push_to_elastic(
+                app_config.elastic_config.elastic_search_url,
+                app_config.elastic_config.index,
+                reviews[i *
+                        constants.BULK_UPLOAD_SIZE:min((i + 1) *
+                                             constants.BULK_UPLOAD_SIZE, len(reviews))])
+            if response.status_code != 200:
+                print(
+                    &#34;[Error] push_data_to_elasticsearch :: Got status code : &#34;,
+                    response.status_code)
+                print(&#34;[Error] push_data_to_elasticsearch :: Response is : &#34;,
+                      response.text)
+            i += 1</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="project.fawkes.datastore" href="index.html">project.fawkes.datastore</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="project.fawkes.datastore.elasticsearch.bulk_push_to_elastic" href="#project.fawkes.datastore.elasticsearch.bulk_push_to_elastic">bulk_push_to_elastic</a></code></li>
+<li><code><a title="project.fawkes.datastore.elasticsearch.create_document" href="#project.fawkes.datastore.elasticsearch.create_document">create_document</a></code></li>
+<li><code><a title="project.fawkes.datastore.elasticsearch.create_index" href="#project.fawkes.datastore.elasticsearch.create_index">create_index</a></code></li>
+<li><code><a title="project.fawkes.datastore.elasticsearch.delete_document" href="#project.fawkes.datastore.elasticsearch.delete_document">delete_document</a></code></li>
+<li><code><a title="project.fawkes.datastore.elasticsearch.delete_index" href="#project.fawkes.datastore.elasticsearch.delete_index">delete_index</a></code></li>
+<li><code><a title="project.fawkes.datastore.elasticsearch.get_document" href="#project.fawkes.datastore.elasticsearch.get_document">get_document</a></code></li>
+<li><code><a title="project.fawkes.datastore.elasticsearch.get_indices" href="#project.fawkes.datastore.elasticsearch.get_indices">get_indices</a></code></li>
+<li><code><a title="project.fawkes.datastore.elasticsearch.push_data_to_elasticsearch" href="#project.fawkes.datastore.elasticsearch.push_data_to_elasticsearch">push_data_to_elasticsearch</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

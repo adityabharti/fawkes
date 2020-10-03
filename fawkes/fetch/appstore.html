@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.1" />
-<title>project API documentation</title>
+<title>project.fawkes.fetch.appstore API documentation</title>
 <meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,26 +19,119 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Package <code>project</code></h1>
+<h1 class="title">Module <code>project.fawkes.fetch.appstore</code></h1>
 </header>
 <section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import requests
+import json
+import sys
+import os
+import xmltodict
+
+from pprint import pprint
+
+# This is so that below import works
+sys.path.append(os.path.realpath(&#34;.&#34;))
+
+import fawkes.utils.utils as utils
+import fawkes.constants as constants
+
+
+def fetch(review_channel):
+    reviews = []
+
+    for i in range(constants.APP_STORE_PAGES_TO_FETCH):
+        # Fetch the app-store reviews
+        response = requests.get(
+            constants.APP_STORE_RSS_URL.format(country=review_channel.country,
+                                     app_id=review_channel.app_id,
+                                     page_number=i + 1))
+        # We get an XML reponse, we convert it to json
+        review = json.loads(json.dumps(xmltodict.parse(response.text)))
+        if &#34;entry&#34; in review[&#34;feed&#34;]:
+            reviews += review[&#34;feed&#34;][&#34;entry&#34;]
+
+    new_reviews = []
+
+    # Correcting the timestamps
+    for i in range(len(reviews)):
+        try:
+            new_review = {
+                &#34;updated&#34;:
+                    reviews[i][&#34;updated&#34;].split(&#34;T&#34;)[0] + &#34; &#34; +
+                    reviews[i][&#34;updated&#34;].split(&#34;T&#34;)[1].split(&#34;-&#34;)[0],
+                &#34;rating&#34;:
+                    int(reviews[i][&#34;im:rating&#34;]),
+                &#34;version&#34;:
+                    reviews[i][&#34;im:version&#34;],
+                &#34;content&#34;:
+                    reviews[i][&#34;content&#34;][0][&#34;#text&#34;],
+            }
+            new_reviews.append(new_review)
+        except BaseException:
+            print(&#34;[LOG] Parse Error in fetch_app_store_reviews&#34;)
+
+    return new_reviews</code></pre>
+</details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt><code class="name"><a title="project.fawkes" href="fawkes/index.html">project.fawkes</a></code></dt>
+<dt id="project.fawkes.fetch.appstore.fetch"><code class="name flex">
+<span>def <span class="ident">fetch</span></span>(<span>review_channel)</span>
+</code></dt>
 <dd>
 <div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="project.tests" href="tests/index.html">project.tests</a></code></dt>
-<dd>
-<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fetch(review_channel):
+    reviews = []
+
+    for i in range(constants.APP_STORE_PAGES_TO_FETCH):
+        # Fetch the app-store reviews
+        response = requests.get(
+            constants.APP_STORE_RSS_URL.format(country=review_channel.country,
+                                     app_id=review_channel.app_id,
+                                     page_number=i + 1))
+        # We get an XML reponse, we convert it to json
+        review = json.loads(json.dumps(xmltodict.parse(response.text)))
+        if &#34;entry&#34; in review[&#34;feed&#34;]:
+            reviews += review[&#34;feed&#34;][&#34;entry&#34;]
+
+    new_reviews = []
+
+    # Correcting the timestamps
+    for i in range(len(reviews)):
+        try:
+            new_review = {
+                &#34;updated&#34;:
+                    reviews[i][&#34;updated&#34;].split(&#34;T&#34;)[0] + &#34; &#34; +
+                    reviews[i][&#34;updated&#34;].split(&#34;T&#34;)[1].split(&#34;-&#34;)[0],
+                &#34;rating&#34;:
+                    int(reviews[i][&#34;im:rating&#34;]),
+                &#34;version&#34;:
+                    reviews[i][&#34;im:version&#34;],
+                &#34;content&#34;:
+                    reviews[i][&#34;content&#34;][0][&#34;#text&#34;],
+            }
+            new_reviews.append(new_review)
+        except BaseException:
+            print(&#34;[LOG] Parse Error in fetch_app_store_reviews&#34;)
+
+    return new_reviews</code></pre>
+</details>
 </dd>
 </dl>
-</section>
-<section>
-</section>
-<section>
 </section>
 <section>
 </section>
@@ -49,10 +142,14 @@
 <ul></ul>
 </div>
 <ul id="index">
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<li><h3>Super-module</h3>
 <ul>
-<li><code><a title="project.fawkes" href="fawkes/index.html">project.fawkes</a></code></li>
-<li><code><a title="project.tests" href="tests/index.html">project.tests</a></code></li>
+<li><code><a title="project.fawkes.fetch" href="index.html">project.fawkes.fetch</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="project.fawkes.fetch.appstore.fetch" href="#project.fawkes.fetch.appstore.fetch">fetch</a></code></li>
 </ul>
 </li>
 </ul>
