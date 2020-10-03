@@ -33,9 +33,10 @@ jobs:
           command: "pdoc --html --skip-errors --output-dir docs ."
       - run:
           name: "cd into docs"
-          command: "cd docs && pwd"
+          command: "cd docs && pwd && cd $(ls) && pwd && ls && cd src && ls && pwd"
       - persist_to_workspace:
-          root: ~/docs/project
+          root: ~/project/docs
+          paths: project
 
 workflows:
   version: 2
