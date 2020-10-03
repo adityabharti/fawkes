@@ -31,12 +31,6 @@ jobs:
       - run:
           name: "Building documenation using pdoc3"
           command: "pdoc --html --skip-errors --output-dir docs ."
-      - run:
-          name: "cd into docs"
-          command: "cd docs && pwd && cd $(ls) && pwd && ls && cd src && ls && pwd"
-      - run:
-          name: "print git creds"
-          command: "git config --list"
       - persist_to_workspace:
           root: ~/project/docs
           paths: project
@@ -51,9 +45,6 @@ jobs:
                 - "7f:f7:8d:79:e6:17:7a:4c:e3:ec:b7:05:55:57:fe:26"
       - attach_workspace:
             at: ~/project/docs/project
-      - run:
-            name: "which dir"
-            command: "ls && pwd"
       - run:
             name: Install and configure dependencies
             command: |
