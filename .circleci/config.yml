@@ -69,6 +69,3 @@ workflows:
           requires:
             - test
             - build-docs
-          filters:
-            branches:
-              only: master
