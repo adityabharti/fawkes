@@ -65,4 +65,10 @@ workflows:
     jobs:
       - test
       - build-docs
-      - docs-deploy
+      - docs-deploy:
+          requires:
+            - test
+            - build-docs
+          filters:
+            branches:
+              only: master
