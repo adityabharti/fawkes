@@ -34,9 +34,30 @@ jobs:
       - run:
           name: "cd into docs"
           command: "cd docs && pwd && cd $(ls) && pwd && ls && cd src && ls && pwd"
+      - run:
+          name: "print git creds"
+          command: "git config --list"
       - persist_to_workspace:
           root: ~/project/docs
           paths: project
+
+  docs-deploy:
+      docker:
+      - image: node:8.10.0
+      steps:
+      - checkout
+      - attach_workspace:
+            at: ~/project/docs/project
+      - run:
+            name: "which dir"
+            command: "ls && pwd"
+      - run:
+            name: Install and configure dependencies
+            command: |
+                npm install -g --silent gh-pages@2.0.1
+      - run:
+            name: Deploy docs to gh-pages branch
+            command: gh-pages --dist project/docs/project
 
 workflows:
   version: 2
@@ -44,3 +65,4 @@ workflows:
     jobs:
       - test
       - build-docs
+      - docs-deploy
