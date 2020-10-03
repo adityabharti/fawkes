@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>project.src.app_config.app_config API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>project.src.app_config.app_config</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import json
+import os
+from pprint import pprint
+
+class App:
+    def __init__(self, config):
+        self.name = config[&#34;name&#34;]
+        self.logo = config[&#34;logo&#34;]
+
+class ElasticConfig:
+    def __init__(self, config):
+        self.index = config[&#34;index&#34;]
+        self.elastic_search_url = config[&#34;elastic_search_url&#34;]
+        self.kibana_url = config[&#34;kibana_url&#34;]
+        self.lifetime_rating_index = config[&#34;lifetime_rating_index&#34;]
+
+class EmailConfig:
+    def __init__(self, config):
+        self.email_template_file = config[&#34;email_template_file&#34;]
+        self.email_time_span = config[&#34;email_time_span&#34;]
+        self.email_time_span_in_words = config[&#34;email_time_span_in_words&#34;]
+        self.email_subject_name = config[&#34;email_subject_name&#34;]
+        self.sender_email_address = config[&#34;sender_email_address&#34;]
+        self.email_list = config[&#34;email_list&#34;]
+        self.sendgrid_api_key = config[&#34;sendgrid_api_key&#34;]
+
+class SlackCustomNotifications:
+    def __init__(self, config):
+        self.category_based_rules = config[&#34;category_based_rules&#34;]
+        self.keyword_based_rules = config[&#34;keyword_based_rules&#34;]
+
+class SlackConfig:
+    def __init__(self, config):
+        self.slack_channel = config[&#34;slack_channel&#34;]
+        self.slack_hook_url = config[&#34;slack_hook_url&#34;]
+        self.slack_run_interval = config[&#34;slack_run_interval&#34;]
+        self.slack_notification_rules = SlackCustomNotifications(config[&#34;slack_notification_rules&#34;])
+
+class JiraConfig:
+    def __init__(self, config):
+        self.base_url = config[&#34;base_url&#34;]
+        self.project_id = config[&#34;project_id&#34;]
+        self.story_type = config[&#34;story_type&#34;]
+        self.bug_type = config[&#34;bug_type&#34;]
+
+class CategorizationAlgorithms:
+    TEXT_MATCH_CLASSIFICATION = &#34;text_match&#34;
+    LSTM_CLASSIFICATION = &#34;lstm_classification&#34;
+
+class AlgorithmConfig:
+    def __init__(self, config):
+        self.categorization_algorithm = config[&#34;categorization_algorithm&#34;]
+        self.algorithm_days_filter = config[&#34;algorithm_days_filter&#34;]
+        self.bug_feature_keywords_file = config[&#34;bug_feature_keywords_file&#34;]
+        self.bug_feature_keywords_weights_file = config[&#34;bug_feature_keywords_weights_file&#34;]
+        self.category_keywords_file = config[&#34;category_keywords_file&#34;]
+        self.category_keywords_weights_file = config[&#34;category_keywords_weights_file&#34;]
+
+
+class ReviewChannelTypes:
+    IOS = &#34;ios&#34;
+    ANDROID = &#34;android&#34;
+    SPREADSHEET = &#34;spreadsheet&#34;
+    TWITTER = &#34;twitter&#34;
+    SALESFORCE = &#34;salesforce&#34;
+    CSV = &#34;csv&#34;
+    JSON = &#34;json&#34;
+    BLANK = &#34;blank&#34;
+
+class ReviewChannel:
+    def __init__(self, config):
+        self.channel_type = config[&#34;channel_type&#34;]
+        self.channel_name = config[&#34;channel_name&#34;]
+        self.file_type = config[&#34;file_type&#34;]
+        self.file_path = config[&#34;file_path&#34;]
+        self.is_channel_enabled = config[&#34;is_channel_enabled&#34;]
+        self.weekly_summary = config[&#34;weekly_summary&#34;]
+        self.timestamp_key = config[&#34;timestamp_key&#34;]
+        self.timestamp_format = config[&#34;timestamp_format&#34;]
+        self.timezone = config[&#34;timezone&#34;]
+        self.message_key = config[&#34;message_key&#34;]
+        self.rating_key = config[&#34;rating_key&#34;]
+
+class AppStoreReviewChannel(ReviewChannel):
+    def __init__(self, config):
+        super().__init__(config)
+        self.app_id = config[&#34;app_id&#34;]
+        self.country = config[&#34;country&#34;]
+
+        # Pre defined constants for App. Store.
+        self.timestamp_key = &#34;updated&#34;
+        self.timestamp_format = &#34;%Y-%m-%d %H:%M:%S&#34;
+        self.message_key = &#34;content&#34;
+        self.rating_key = &#34;rating&#34;
+
+class PlayStoreReviewChannel(ReviewChannel):
+    def __init__(self, config):
+        super().__init__(config)
+        self.app_id = config[&#34;app_id&#34;]
+        self.searchman_api_key = config[&#34;searchman_api_key&#34;]
+
+        # Pre defined constants for Play. Store.
+        self.timestamp_key = &#34;timestamp&#34;
+        self.message_key = &#34;content&#34;
+
+class TwitterReviewChannel(ReviewChannel):
+    def __init__(self, config):
+        super().__init__(config)
+        self.consumer_key = config[&#34;consumer_key&#34;]
+        self.consumer_secret = config[&#34;consumer_secret&#34;]
+        self.access_token_key = config[&#34;access_token_key&#34;]
+        self.access_token_secret = config[&#34;access_token_secret&#34;]
+        self.twitter_handle_list = config[&#34;twitter_handle_list&#34;]
+        self.twitter_handle_filter_list = config[&#34;twitter_handle_filter_list&#34;]
+
+        # Pre defined constants for Twitter
+        self.timestamp_key = &#34;created_at&#34;
+        self.timestamp_format = &#34;%a %b %d %H:%M:%S %z %Y&#34;
+        self.message_key = &#34;text&#34;
+        self.timezone = &#34;GMT&#34;
+
+class SpreadSheetReviewChannel(ReviewChannel):
+    def __init__(self, config):
+        super().__init__(config)
+        self.spreadsheet_id = config[&#34;spreadsheet_id&#34;]
+        self.sheet_id = config[&#34;sheet_id&#34;]
+        self.client_secrets_file = config[&#34;client_secrets_file&#34;]
+
+class SalesforceReviewChannel(ReviewChannel):
+    def __init__(self, config):
+        super().__init__(config)
+        self.base_url = config[&#34;base_url&#34;]
+        self.oauth_params = config[&#34;oauth_params&#34;]
+        self.query_list = config[&#34;query_list&#34;]
+
+class FawkesInternalDataConfig:
+    def __init__(self, config):
+        self.base_folder = config[&#34;base_folder&#34;]
+        self.raw_data_folder = config[&#34;raw_data_folder&#34;]
+        self.parsed_data_folder = config[&#34;parsed_data_folder&#34;]
+        self.processed_data_folder = config[&#34;processed_data_folder&#34;]
+        self.models_folder = config[&#34;models_folder&#34;]
+        self.emails_folder = config[&#34;emails_folder&#34;]
+
+class FawkesInternalConfig:
+    def __init__(self, config):
+        self.data = FawkesInternalDataConfig(config[&#34;data&#34;])
+
+class AppConfig:
+    def __init__(self, config):
+        # First we convert any env-keys to their actual values.
+        config = self.inject_env_vars_as_values(config)
+        # We initialize each of the attributes of AppConfig
+        self.app = App(config[&#34;app&#34;])
+        self.elastic_config = ElasticConfig(config[&#34;elastic_config&#34;])
+        self.email_config = EmailConfig(config[&#34;email_config&#34;])
+        self.slack_config = SlackConfig(config[&#34;slack_config&#34;])
+        self.jira_config = JiraConfig(config[&#34;jira_config&#34;])
+        self.algorithm_config = AlgorithmConfig(config[&#34;algorithm_config&#34;])
+        self.env_keys = config[&#34;env_keys&#34;]
+        self.custom_code_module_path = config[&#34;custom_code_module_path&#34;]
+        self.fawkes_internal_config = FawkesInternalConfig(config[&#34;fawkes_internal_config&#34;])
+
+        # Add the review channels
+        self.review_channels = []
+
+        # Determine the channel_type and initialize the object accordingly
+        for review_channel in config[&#34;review_channels&#34;]:
+            if review_channel[&#34;channel_type&#34;] == ReviewChannelTypes.IOS:
+                self.review_channels.append(
+                    AppStoreReviewChannel(review_channel)
+                )
+            elif review_channel[&#34;channel_type&#34;] == ReviewChannelTypes.ANDROID:
+                self.review_channels.append(
+                    PlayStoreReviewChannel(review_channel)
+                )
+            elif review_channel[&#34;channel_type&#34;] == ReviewChannelTypes.TWITTER:
+                self.review_channels.append(
+                    TwitterReviewChannel(review_channel)
+                )
+            elif review_channel[&#34;channel_type&#34;] == ReviewChannelTypes.SPREADSHEET:
+                self.review_channels.append(
+                    SpreadSheetReviewChannel(review_channel)
+                )
+            else:
+                self.review_channels.append(
+                    ReviewChannel(review_channel)
+                )
+
+    def inject_env_vars_as_values(self, config):
+        config_string = json.dumps(config)
+        env_vars = config[&#34;env_keys&#34;]
+
+        for key in env_vars:
+            config_string = config_string.replace(
+                key,
+                os.environ[key]
+            )
+        return json.loads(config_string)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="project.src.app_config.app_config.AlgorithmConfig"><code class="flex name class">
+<span>class <span class="ident">AlgorithmConfig</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AlgorithmConfig:
+    def __init__(self, config):
+        self.categorization_algorithm = config[&#34;categorization_algorithm&#34;]
+        self.algorithm_days_filter = config[&#34;algorithm_days_filter&#34;]
+        self.bug_feature_keywords_file = config[&#34;bug_feature_keywords_file&#34;]
+        self.bug_feature_keywords_weights_file = config[&#34;bug_feature_keywords_weights_file&#34;]
+        self.category_keywords_file = config[&#34;category_keywords_file&#34;]
+        self.category_keywords_weights_file = config[&#34;category_keywords_weights_file&#34;]</code></pre>
+</details>
+</dd>
+<dt id="project.src.app_config.app_config.App"><code class="flex name class">
+<span>class <span class="ident">App</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class App:
+    def __init__(self, config):
+        self.name = config[&#34;name&#34;]
+        self.logo = config[&#34;logo&#34;]</code></pre>
+</details>
+</dd>
+<dt id="project.src.app_config.app_config.AppConfig"><code class="flex name class">
+<span>class <span class="ident">AppConfig</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AppConfig:
+    def __init__(self, config):
+        # First we convert any env-keys to their actual values.
+        config = self.inject_env_vars_as_values(config)
+        # We initialize each of the attributes of AppConfig
+        self.app = App(config[&#34;app&#34;])
+        self.elastic_config = ElasticConfig(config[&#34;elastic_config&#34;])
+        self.email_config = EmailConfig(config[&#34;email_config&#34;])
+        self.slack_config = SlackConfig(config[&#34;slack_config&#34;])
+        self.jira_config = JiraConfig(config[&#34;jira_config&#34;])
+        self.algorithm_config = AlgorithmConfig(config[&#34;algorithm_config&#34;])
+        self.env_keys = config[&#34;env_keys&#34;]
+        self.custom_code_module_path = config[&#34;custom_code_module_path&#34;]
+        self.fawkes_internal_config = FawkesInternalConfig(config[&#34;fawkes_internal_config&#34;])
+
+        # Add the review channels
+        self.review_channels = []
+
+        # Determine the channel_type and initialize the object accordingly
+        for review_channel in config[&#34;review_channels&#34;]:
+            if review_channel[&#34;channel_type&#34;] == ReviewChannelTypes.IOS:
+                self.review_channels.append(
+                    AppStoreReviewChannel(review_channel)
+                )
+            elif review_channel[&#34;channel_type&#34;] == ReviewChannelTypes.ANDROID:
+                self.review_channels.append(
+                    PlayStoreReviewChannel(review_channel)
+                )
+            elif review_channel[&#34;channel_type&#34;] == ReviewChannelTypes.TWITTER:
+                self.review_channels.append(
+                    TwitterReviewChannel(review_channel)
+                )
+            elif review_channel[&#34;channel_type&#34;] == ReviewChannelTypes.SPREADSHEET:
+                self.review_channels.append(
+                    SpreadSheetReviewChannel(review_channel)
+                )
+            else:
+                self.review_channels.append(
+                    ReviewChannel(review_channel)
+                )
+
+    def inject_env_vars_as_values(self, config):
+        config_string = json.dumps(config)
+        env_vars = config[&#34;env_keys&#34;]
+
+        for key in env_vars:
+            config_string = config_string.replace(
+                key,
+                os.environ[key]
+            )
+        return json.loads(config_string)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="project.src.app_config.app_config.AppConfig.inject_env_vars_as_values"><code class="name flex">
+<span>def <span class="ident">inject_env_vars_as_values</span></span>(<span>self, config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def inject_env_vars_as_values(self, config):
+    config_string = json.dumps(config)
+    env_vars = config[&#34;env_keys&#34;]
+
+    for key in env_vars:
+        config_string = config_string.replace(
+            key,
+            os.environ[key]
+        )
+    return json.loads(config_string)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="project.src.app_config.app_config.AppStoreReviewChannel"><code class="flex name class">
+<span>class <span class="ident">AppStoreReviewChannel</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AppStoreReviewChannel(ReviewChannel):
+    def __init__(self, config):
+        super().__init__(config)
+        self.app_id = config[&#34;app_id&#34;]
+        self.country = config[&#34;country&#34;]
+
+        # Pre defined constants for App. Store.
+        self.timestamp_key = &#34;updated&#34;
+        self.timestamp_format = &#34;%Y-%m-%d %H:%M:%S&#34;
+        self.message_key = &#34;content&#34;
+        self.rating_key = &#34;rating&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="project.src.app_config.app_config.ReviewChannel" href="#project.src.app_config.app_config.ReviewChannel">ReviewChannel</a></li>
+</ul>
+</dd>
+<dt id="project.src.app_config.app_config.CategorizationAlgorithms"><code class="flex name class">
+<span>class <span class="ident">CategorizationAlgorithms</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CategorizationAlgorithms:
+    TEXT_MATCH_CLASSIFICATION = &#34;text_match&#34;
+    LSTM_CLASSIFICATION = &#34;lstm_classification&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="project.src.app_config.app_config.CategorizationAlgorithms.LSTM_CLASSIFICATION"><code class="name">var <span class="ident">LSTM_CLASSIFICATION</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="project.src.app_config.app_config.CategorizationAlgorithms.TEXT_MATCH_CLASSIFICATION"><code class="name">var <span class="ident">TEXT_MATCH_CLASSIFICATION</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="project.src.app_config.app_config.ElasticConfig"><code class="flex name class">
+<span>class <span class="ident">ElasticConfig</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ElasticConfig:
+    def __init__(self, config):
+        self.index = config[&#34;index&#34;]
+        self.elastic_search_url = config[&#34;elastic_search_url&#34;]
+        self.kibana_url = config[&#34;kibana_url&#34;]
+        self.lifetime_rating_index = config[&#34;lifetime_rating_index&#34;]</code></pre>
+</details>
+</dd>
+<dt id="project.src.app_config.app_config.EmailConfig"><code class="flex name class">
+<span>class <span class="ident">EmailConfig</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EmailConfig:
+    def __init__(self, config):
+        self.email_template_file = config[&#34;email_template_file&#34;]
+        self.email_time_span = config[&#34;email_time_span&#34;]
+        self.email_time_span_in_words = config[&#34;email_time_span_in_words&#34;]
+        self.email_subject_name = config[&#34;email_subject_name&#34;]
+        self.sender_email_address = config[&#34;sender_email_address&#34;]
+        self.email_list = config[&#34;email_list&#34;]
+        self.sendgrid_api_key = config[&#34;sendgrid_api_key&#34;]</code></pre>
+</details>
+</dd>
+<dt id="project.src.app_config.app_config.FawkesInternalConfig"><code class="flex name class">
+<span>class <span class="ident">FawkesInternalConfig</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FawkesInternalConfig:
+    def __init__(self, config):
+        self.data = FawkesInternalDataConfig(config[&#34;data&#34;])</code></pre>
+</details>
+</dd>
+<dt id="project.src.app_config.app_config.FawkesInternalDataConfig"><code class="flex name class">
+<span>class <span class="ident">FawkesInternalDataConfig</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FawkesInternalDataConfig:
+    def __init__(self, config):
+        self.base_folder = config[&#34;base_folder&#34;]
+        self.raw_data_folder = config[&#34;raw_data_folder&#34;]
+        self.parsed_data_folder = config[&#34;parsed_data_folder&#34;]
+        self.processed_data_folder = config[&#34;processed_data_folder&#34;]
+        self.models_folder = config[&#34;models_folder&#34;]
+        self.emails_folder = config[&#34;emails_folder&#34;]</code></pre>
+</details>
+</dd>
+<dt id="project.src.app_config.app_config.JiraConfig"><code class="flex name class">
+<span>class <span class="ident">JiraConfig</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class JiraConfig:
+    def __init__(self, config):
+        self.base_url = config[&#34;base_url&#34;]
+        self.project_id = config[&#34;project_id&#34;]
+        self.story_type = config[&#34;story_type&#34;]
+        self.bug_type = config[&#34;bug_type&#34;]</code></pre>
+</details>
+</dd>
+<dt id="project.src.app_config.app_config.PlayStoreReviewChannel"><code class="flex name class">
+<span>class <span class="ident">PlayStoreReviewChannel</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PlayStoreReviewChannel(ReviewChannel):
+    def __init__(self, config):
+        super().__init__(config)
+        self.app_id = config[&#34;app_id&#34;]
+        self.searchman_api_key = config[&#34;searchman_api_key&#34;]
+
+        # Pre defined constants for Play. Store.
+        self.timestamp_key = &#34;timestamp&#34;
+        self.message_key = &#34;content&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="project.src.app_config.app_config.ReviewChannel" href="#project.src.app_config.app_config.ReviewChannel">ReviewChannel</a></li>
+</ul>
+</dd>
+<dt id="project.src.app_config.app_config.ReviewChannel"><code class="flex name class">
+<span>class <span class="ident">ReviewChannel</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ReviewChannel:
+    def __init__(self, config):
+        self.channel_type = config[&#34;channel_type&#34;]
+        self.channel_name = config[&#34;channel_name&#34;]
+        self.file_type = config[&#34;file_type&#34;]
+        self.file_path = config[&#34;file_path&#34;]
+        self.is_channel_enabled = config[&#34;is_channel_enabled&#34;]
+        self.weekly_summary = config[&#34;weekly_summary&#34;]
+        self.timestamp_key = config[&#34;timestamp_key&#34;]
+        self.timestamp_format = config[&#34;timestamp_format&#34;]
+        self.timezone = config[&#34;timezone&#34;]
+        self.message_key = config[&#34;message_key&#34;]
+        self.rating_key = config[&#34;rating_key&#34;]</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="project.src.app_config.app_config.AppStoreReviewChannel" href="#project.src.app_config.app_config.AppStoreReviewChannel">AppStoreReviewChannel</a></li>
+<li><a title="project.src.app_config.app_config.PlayStoreReviewChannel" href="#project.src.app_config.app_config.PlayStoreReviewChannel">PlayStoreReviewChannel</a></li>
+<li><a title="project.src.app_config.app_config.SalesforceReviewChannel" href="#project.src.app_config.app_config.SalesforceReviewChannel">SalesforceReviewChannel</a></li>
+<li><a title="project.src.app_config.app_config.SpreadSheetReviewChannel" href="#project.src.app_config.app_config.SpreadSheetReviewChannel">SpreadSheetReviewChannel</a></li>
+<li><a title="project.src.app_config.app_config.TwitterReviewChannel" href="#project.src.app_config.app_config.TwitterReviewChannel">TwitterReviewChannel</a></li>
+</ul>
+</dd>
+<dt id="project.src.app_config.app_config.ReviewChannelTypes"><code class="flex name class">
+<span>class <span class="ident">ReviewChannelTypes</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ReviewChannelTypes:
+    IOS = &#34;ios&#34;
+    ANDROID = &#34;android&#34;
+    SPREADSHEET = &#34;spreadsheet&#34;
+    TWITTER = &#34;twitter&#34;
+    SALESFORCE = &#34;salesforce&#34;
+    CSV = &#34;csv&#34;
+    JSON = &#34;json&#34;
+    BLANK = &#34;blank&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="project.src.app_config.app_config.ReviewChannelTypes.ANDROID"><code class="name">var <span class="ident">ANDROID</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="project.src.app_config.app_config.ReviewChannelTypes.BLANK"><code class="name">var <span class="ident">BLANK</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="project.src.app_config.app_config.ReviewChannelTypes.CSV"><code class="name">var <span class="ident">CSV</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="project.src.app_config.app_config.ReviewChannelTypes.IOS"><code class="name">var <span class="ident">IOS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="project.src.app_config.app_config.ReviewChannelTypes.JSON"><code class="name">var <span class="ident">JSON</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="project.src.app_config.app_config.ReviewChannelTypes.SALESFORCE"><code class="name">var <span class="ident">SALESFORCE</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="project.src.app_config.app_config.ReviewChannelTypes.SPREADSHEET"><code class="name">var <span class="ident">SPREADSHEET</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="project.src.app_config.app_config.ReviewChannelTypes.TWITTER"><code class="name">var <span class="ident">TWITTER</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="project.src.app_config.app_config.SalesforceReviewChannel"><code class="flex name class">
+<span>class <span class="ident">SalesforceReviewChannel</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SalesforceReviewChannel(ReviewChannel):
+    def __init__(self, config):
+        super().__init__(config)
+        self.base_url = config[&#34;base_url&#34;]
+        self.oauth_params = config[&#34;oauth_params&#34;]
+        self.query_list = config[&#34;query_list&#34;]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="project.src.app_config.app_config.ReviewChannel" href="#project.src.app_config.app_config.ReviewChannel">ReviewChannel</a></li>
+</ul>
+</dd>
+<dt id="project.src.app_config.app_config.SlackConfig"><code class="flex name class">
+<span>class <span class="ident">SlackConfig</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SlackConfig:
+    def __init__(self, config):
+        self.slack_channel = config[&#34;slack_channel&#34;]
+        self.slack_hook_url = config[&#34;slack_hook_url&#34;]
+        self.slack_run_interval = config[&#34;slack_run_interval&#34;]
+        self.slack_notification_rules = SlackCustomNotifications(config[&#34;slack_notification_rules&#34;])</code></pre>
+</details>
+</dd>
+<dt id="project.src.app_config.app_config.SlackCustomNotifications"><code class="flex name class">
+<span>class <span class="ident">SlackCustomNotifications</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SlackCustomNotifications:
+    def __init__(self, config):
+        self.category_based_rules = config[&#34;category_based_rules&#34;]
+        self.keyword_based_rules = config[&#34;keyword_based_rules&#34;]</code></pre>
+</details>
+</dd>
+<dt id="project.src.app_config.app_config.SpreadSheetReviewChannel"><code class="flex name class">
+<span>class <span class="ident">SpreadSheetReviewChannel</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SpreadSheetReviewChannel(ReviewChannel):
+    def __init__(self, config):
+        super().__init__(config)
+        self.spreadsheet_id = config[&#34;spreadsheet_id&#34;]
+        self.sheet_id = config[&#34;sheet_id&#34;]
+        self.client_secrets_file = config[&#34;client_secrets_file&#34;]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="project.src.app_config.app_config.ReviewChannel" href="#project.src.app_config.app_config.ReviewChannel">ReviewChannel</a></li>
+</ul>
+</dd>
+<dt id="project.src.app_config.app_config.TwitterReviewChannel"><code class="flex name class">
+<span>class <span class="ident">TwitterReviewChannel</span></span>
+<span>(</span><span>config)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TwitterReviewChannel(ReviewChannel):
+    def __init__(self, config):
+        super().__init__(config)
+        self.consumer_key = config[&#34;consumer_key&#34;]
+        self.consumer_secret = config[&#34;consumer_secret&#34;]
+        self.access_token_key = config[&#34;access_token_key&#34;]
+        self.access_token_secret = config[&#34;access_token_secret&#34;]
+        self.twitter_handle_list = config[&#34;twitter_handle_list&#34;]
+        self.twitter_handle_filter_list = config[&#34;twitter_handle_filter_list&#34;]
+
+        # Pre defined constants for Twitter
+        self.timestamp_key = &#34;created_at&#34;
+        self.timestamp_format = &#34;%a %b %d %H:%M:%S %z %Y&#34;
+        self.message_key = &#34;text&#34;
+        self.timezone = &#34;GMT&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="project.src.app_config.app_config.ReviewChannel" href="#project.src.app_config.app_config.ReviewChannel">ReviewChannel</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="project.src.app_config" href="index.html">project.src.app_config</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="project.src.app_config.app_config.AlgorithmConfig" href="#project.src.app_config.app_config.AlgorithmConfig">AlgorithmConfig</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.App" href="#project.src.app_config.app_config.App">App</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.AppConfig" href="#project.src.app_config.app_config.AppConfig">AppConfig</a></code></h4>
+<ul class="">
+<li><code><a title="project.src.app_config.app_config.AppConfig.inject_env_vars_as_values" href="#project.src.app_config.app_config.AppConfig.inject_env_vars_as_values">inject_env_vars_as_values</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.AppStoreReviewChannel" href="#project.src.app_config.app_config.AppStoreReviewChannel">AppStoreReviewChannel</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.CategorizationAlgorithms" href="#project.src.app_config.app_config.CategorizationAlgorithms">CategorizationAlgorithms</a></code></h4>
+<ul class="">
+<li><code><a title="project.src.app_config.app_config.CategorizationAlgorithms.LSTM_CLASSIFICATION" href="#project.src.app_config.app_config.CategorizationAlgorithms.LSTM_CLASSIFICATION">LSTM_CLASSIFICATION</a></code></li>
+<li><code><a title="project.src.app_config.app_config.CategorizationAlgorithms.TEXT_MATCH_CLASSIFICATION" href="#project.src.app_config.app_config.CategorizationAlgorithms.TEXT_MATCH_CLASSIFICATION">TEXT_MATCH_CLASSIFICATION</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.ElasticConfig" href="#project.src.app_config.app_config.ElasticConfig">ElasticConfig</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.EmailConfig" href="#project.src.app_config.app_config.EmailConfig">EmailConfig</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.FawkesInternalConfig" href="#project.src.app_config.app_config.FawkesInternalConfig">FawkesInternalConfig</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.FawkesInternalDataConfig" href="#project.src.app_config.app_config.FawkesInternalDataConfig">FawkesInternalDataConfig</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.JiraConfig" href="#project.src.app_config.app_config.JiraConfig">JiraConfig</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.PlayStoreReviewChannel" href="#project.src.app_config.app_config.PlayStoreReviewChannel">PlayStoreReviewChannel</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.ReviewChannel" href="#project.src.app_config.app_config.ReviewChannel">ReviewChannel</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.ReviewChannelTypes" href="#project.src.app_config.app_config.ReviewChannelTypes">ReviewChannelTypes</a></code></h4>
+<ul class="two-column">
+<li><code><a title="project.src.app_config.app_config.ReviewChannelTypes.ANDROID" href="#project.src.app_config.app_config.ReviewChannelTypes.ANDROID">ANDROID</a></code></li>
+<li><code><a title="project.src.app_config.app_config.ReviewChannelTypes.BLANK" href="#project.src.app_config.app_config.ReviewChannelTypes.BLANK">BLANK</a></code></li>
+<li><code><a title="project.src.app_config.app_config.ReviewChannelTypes.CSV" href="#project.src.app_config.app_config.ReviewChannelTypes.CSV">CSV</a></code></li>
+<li><code><a title="project.src.app_config.app_config.ReviewChannelTypes.IOS" href="#project.src.app_config.app_config.ReviewChannelTypes.IOS">IOS</a></code></li>
+<li><code><a title="project.src.app_config.app_config.ReviewChannelTypes.JSON" href="#project.src.app_config.app_config.ReviewChannelTypes.JSON">JSON</a></code></li>
+<li><code><a title="project.src.app_config.app_config.ReviewChannelTypes.SALESFORCE" href="#project.src.app_config.app_config.ReviewChannelTypes.SALESFORCE">SALESFORCE</a></code></li>
+<li><code><a title="project.src.app_config.app_config.ReviewChannelTypes.SPREADSHEET" href="#project.src.app_config.app_config.ReviewChannelTypes.SPREADSHEET">SPREADSHEET</a></code></li>
+<li><code><a title="project.src.app_config.app_config.ReviewChannelTypes.TWITTER" href="#project.src.app_config.app_config.ReviewChannelTypes.TWITTER">TWITTER</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.SalesforceReviewChannel" href="#project.src.app_config.app_config.SalesforceReviewChannel">SalesforceReviewChannel</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.SlackConfig" href="#project.src.app_config.app_config.SlackConfig">SlackConfig</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.SlackCustomNotifications" href="#project.src.app_config.app_config.SlackCustomNotifications">SlackCustomNotifications</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.SpreadSheetReviewChannel" href="#project.src.app_config.app_config.SpreadSheetReviewChannel">SpreadSheetReviewChannel</a></code></h4>
+</li>
+<li>
+<h4><code><a title="project.src.app_config.app_config.TwitterReviewChannel" href="#project.src.app_config.app_config.TwitterReviewChannel">TwitterReviewChannel</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>
